@@ -5,7 +5,8 @@ function App() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=468526649a824e55884ec3bdebfc8f22`)
+    const apiKey = process.env.REACT_APP_NEWS_API_KEY;
+    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${apiKey}`)
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => console.log(error));
