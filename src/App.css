@@ -2,7 +2,6 @@
   margin: 20px; 
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 .top, .bottom {
@@ -18,8 +17,8 @@
   flex: 1;
 }
 
-.left, .right, .main {
-  flex: 1;
+.left, .right {
+  width: 20%;
   padding: 20px;
   text-align: center;
   margin: 20px;
@@ -30,7 +29,11 @@
 }
 
 .main {
+  width: 60%;
   background-color: #ffffff;
+  justify-content: flex-start;
+  align-items: left;
+  text-align: justify;
 }
 
 .right {
