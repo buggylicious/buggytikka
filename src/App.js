@@ -5,11 +5,19 @@ function App() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const apiKey = process.env.REACT_APP_NEWS_API_KEY;
-    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${apiKey}`)
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.log(error));
+    const apiKey = '468526649a824e55884ec3bdebfc8f22';//process.env.REACT_APP_NEWS_API_KEY;
+    let result = '';
+    for (let i = 0; i < 50; i++) {
+      fetch(`https://meowfacts.herokuapp.com/`)
+        .then(response => response.json())
+        .then(data => {
+          result += data.data + ' <br><br> ';
+          if (i === 49) {
+            setData(result);
+          }
+        })
+        .catch(error => console.log("YAHA FATA - " + error));
+    }
   }, []);
 
 
@@ -21,16 +29,7 @@ function App() {
         <div className="main">
           {data ? (
             <ul>
-              {data.articles.map(({title,description,url}) => {
-                // const [title] = article.title.split('|');
-                // const [content,characters] = article.content.split('[');
-                return (
-                  <li key={title}>
-                    <h2>{title.split('|')[0]}</h2>
-                    <p>{description} <a href={url} target='_blank' rel='noopener noreferrer'>more</a></p>
-                  </li>
-                );
-              })}
+              <p dangerouslySetInnerHTML={{ __html: data }}></p>
             </ul>
           ) : (
             <p>Loading...</p>
