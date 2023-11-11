@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #B4BDFF;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +11,35 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  --theme-color: #007bff; /* change this to your desired theme color */
+}
+
+/* apply the theme color to links and buttons */
+a,
+button {
+  color: var(--theme-color);
+  border-color: var(--theme-color);
+}
+
+a:hover,
+button:hover {
+  background-color: var(--theme-color);
+  color: #fff;
+}
+
+/* apply the theme color to form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  border-color: var(--theme-color);
+}
+
+input[type="submit"] {
+  background-color: var(--theme-color);
+  color: #fff;
 }
